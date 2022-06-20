@@ -1,27 +1,31 @@
-import {Produto} from "./produto"
-
-export class ItemNotaFiscal {
+//
+//
+//
+//
+import {Cliente} from "./cliente";
+import {ItemNotaFiscal} from "./item_nota_fiscal";
+export class NotaFiscal {
 
     /* Atributos */
     id: number;
-    sequencial: number; 
-    quantidade: number;
-    produto : Produto;
-    valor : number;    
+    codigo:number; 
+    data: Date;
+    cliente: Cliente;
+    items :  Array<ItemNotaFiscal>;  
+    valorNota : number;
 
     /* Métodos */
 
     /* Método Construtor */    
-    constructor (id : number, 
-                 sequencial: number, 
-                 quantidade: number, 
-                 produto: Produto
-                 ) {
+    constructor (id : number, codigo: number, cliente : Cliente ) {
         this.id = id;
-        this.sequencial = sequencial;
-        this.quantidade = quantidade;
-        this.produto = produto; 
-        this.valor = 0.0;
+        this.codigo = codigo;
+        this.data = new Date(); 
+        this.cliente = cliente; 
+        this.valorNota =0.0;
+        this.items = new Array<ItemNotaFiscal>();
+
+
     }
 
     /* Métodos Acessores */
@@ -29,30 +33,46 @@ export class ItemNotaFiscal {
         return this.id;
     }
 
-    getsequencial(): number {
-        return this.sequencial;
+    getcodigo(): number {
+        return this.codigo;
     }
 
-    getquantidade(): number {
-        return this.quantidade;
+    getdata(): Date {
+        return this.data;
     }
 
-    getproduto() : Produto {
-        return this.produto;
+    /* Métodos Modificadores */     
+    setcodigo(codigo: number): void {
+        this.codigo = codigo;
     }
 
-    getvalor(): number {
-        return this.valor;
+    setdata(data : Date) : void {
+        this.data = data;
     }
 
-        /* Métodos Modificadores */     
-    setsequencial(sequencial: number): void {
-        this.sequencial = sequencial;
+     
+
+    adicionarItem(item: ItemNotaFiscal) {
+        this.items.push(item);
+        
+        this.valorNota += item.valor;
     }
 
+    // Percorrer o array items e calcular o valor total da NotaFiscal
+    calcularValorNotaFiscal() : number {
+        let valorCalculado = 0;
+
+
+        return valorCalculado;
+
+    }
+
+    // Imprimir a NotaFiscal conforme o Layout definido
     
-    valorItemNotaFiscal() : void {
-        this.valor = this.getproduto().getvalorUnitario();
+    imprimirNotaFiscal(): void {
+
+
     }
+
     
 }
