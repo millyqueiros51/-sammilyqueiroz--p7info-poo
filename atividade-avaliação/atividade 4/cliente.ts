@@ -1,3 +1,7 @@
+//
+//
+//
+//
 
 import { TipoCliente } from "./tipo_cliente";
 export class Cliente {
