@@ -2,74 +2,74 @@
 //
 //
 //
-import {Cliente} from "./cliente";
-import {ItemNotaFiscal} from "./item_nota_fiscal";
-export class NotaFiscal {
+import  { Cliente }  de  "./cliente" ;
+import  { ItemNotaFiscal }  de  "./item_nota_fiscal" ;
+export  class  NotaFiscal  {
 
     /* Atributos */
-    id: number;
-    codigo:number; 
-    data: Date;
-    cliente: Cliente;
-    items :  Array<ItemNotaFiscal>;  
-    valorNota : number;
+    id : número ;
+    código : número ; 
+    dados : Data ;
+    cliente : Cliente ;
+    itens :   Array < ItemNotaFiscal > ;  
+    valorNota : número ;
 
     /* Métodos */
 
-    /* Método Construtor */    
-    constructor (id : number, codigo: number, cliente : Cliente ) {
-        this.id = id;
-        this.codigo = codigo;
-        this.data = new Date(); 
-        this.cliente = cliente; 
-        this.valorNota =0.0;
-        this.items = new Array<ItemNotaFiscal>();
+    /* Construtor de métodos */    
+    construtor  ( id : número ,  codigo : número ,  cliente : Cliente  )  {
+        isso . id  =  id ;
+        isso . codigo  =  codigo ;
+        isso . data  =  new  Data ( ) ; 
+        isso . cliente  =  cliente ; 
+        isso . valorNota  = 0,0 ;
+        isso . items  =  new  Array < ItemNotaFiscal > ( ) ;
 
 
     }
 
     /* Métodos Acessores */
-    getid(): number {
-        return this.id;
+    getid ( ) : numero  {
+        devolva  isso . identificação ;
     }
 
-    getcodigo(): number {
-        return this.codigo;
+    getcodigo ( ) : numero  {
+        devolva  isso . código ;
     }
 
-    getdata(): Date {
-        return this.data;
+    getdata ( ) : Data  {
+        devolva  isso . dados ;
     }
 
     /* Métodos Modificadores */     
-    setcodigo(codigo: number): void {
-        this.codigo = codigo;
+    setcodigo ( codigo : número ) : void  {
+        isso . codigo  =  codigo ;
     }
 
-    setdata(data : Date) : void {
-        this.data = data;
+    setdata ( data : Data ) : void  {
+        isso . dados  =  dados ;
     }
 
      
 
-    adicionarItem(item: ItemNotaFiscal) {
-        this.items.push(item);
+    adicionarItem ( item : ItemNotaFiscal )  {
+        isso . itens . empurrar ( item ) ;
         
-        this.valorNota += item.valor;
+        isso . valorNota  +=  item . valor ;
     }
 
-    // Percorrer o array items e calcular o valor total da NotaFiscal
-    calcularValorNotaFiscal() : number {
-        let valorCalculado = 0;
+    // Percorrer os itens do array e calcular o valor total da NotaFiscal
+    calcularValorNotaFiscal ( ) : número  {
+        deixe  valorCalculado  =  0 ;
 
 
-        return valorCalculado;
+        return  valorCalculado ;
 
     }
 
-    // Imprimir a NotaFiscal conforme o Layout definido
+    // Imprime uma NotaFiscal conforme o Layout definido
     
-    imprimirNotaFiscal(): void {
+    imprimirNotaFiscal ( ) : void  {
 
 
     }
