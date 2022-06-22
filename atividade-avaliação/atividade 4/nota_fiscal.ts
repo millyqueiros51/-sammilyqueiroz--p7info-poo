@@ -1,7 +1,3 @@
-//
-//
-//
-//
 import {Cliente} from "./cliente";
 import {ItemNotaFiscal} from "./item_nota_fiscal";
 export class NotaFiscal {
@@ -12,7 +8,6 @@ export class NotaFiscal {
     data: Date;
     cliente: Cliente;
     items :  Array<ItemNotaFiscal>;  
-    valorNota : number;
 
     /* Métodos */
 
@@ -22,10 +17,7 @@ export class NotaFiscal {
         this.codigo = codigo;
         this.data = new Date(); 
         this.cliente = cliente; 
-        this.valorNota =0.0;
         this.items = new Array<ItemNotaFiscal>();
-
-
     }
 
     /* Métodos Acessores */
@@ -50,29 +42,24 @@ export class NotaFiscal {
         this.data = data;
     }
 
-     
-
     adicionarItem(item: ItemNotaFiscal) {
         this.items.push(item);
-        
-        this.valorNota += item.valor;
     }
 
     // Percorrer o array items e calcular o valor total da NotaFiscal
     calcularValorNotaFiscal() : number {
-        let valorCalculado = 0;
+        let valorNota = 0;
+        
+        for (let i = 0; i < this.items.length; i++) {
+            valorNota += this.items[i].valor;
+        }
 
-
-        return valorCalculado;
-
+        return valorNota;
     }
 
     // Imprimir a NotaFiscal conforme o Layout definido
-    
     imprimirNotaFiscal(): void {
 
 
     }
-
-    
 }
